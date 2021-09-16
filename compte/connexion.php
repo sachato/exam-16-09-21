@@ -12,7 +12,7 @@
         require_once("../scripts/connexion_bdd.php");
         echo var_dump($_POST);
         if(!empty($_POST["email"]) && !empty($_POST["password"])){
-            $get_email_line = "SELECT nom, prenom, email, `password` as mdp FROM professeur WHERE email=:email";
+            $get_email_line = "SELECT id, nom, prenom, email, `password` as mdp FROM professeur WHERE email=:email";
             $professeur = $bdd->prepare($get_email_line);
             $professeur->execute(array("email" => $_POST["email"]));
             
