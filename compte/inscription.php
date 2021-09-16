@@ -10,9 +10,6 @@
     <?php 
         // PHP connextion a la bdd
         require_once("../scripts/connexion_bdd.php");
-        echo var_dump($_POST);
-        echo isset($_POST["nom"]);
-        echo empty($_POST["nom"]);
         //verification des items envoyer du form
         if(!empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"]) && !empty($_POST["password"]) && !empty($_POST["confirm_pass"])){
             if($_POST["password"] == $_POST["confirm_pass"]){
@@ -23,6 +20,7 @@
                                         "prenom" => $_POST["prenom"],
                                         "email" => $_POST["email"],
                                         "mdp" => $mdp));
+                header("Location: ./connexion.php");
             }
             else{
                 echo("Les mots de passe ne sont pas identique");
